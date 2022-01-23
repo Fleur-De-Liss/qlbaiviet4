@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Models.EF.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Tables</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="~/Admin/Home">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Người dùng</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <p>
+                    @Html.ActionLink("Tạo người dùng mới", "Create")
+                </p>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Nhóm người dùng</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Manage</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Nhóm người dùng</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Manage</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Group.GroupName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Password)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                                    @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

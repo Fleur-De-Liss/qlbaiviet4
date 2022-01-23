@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Models.EF.Role>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Quản lý quyền</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="~/Admin/Home">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Dánh sách</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <p>
+                    @Html.ActionLink("Thêm quyền mới", "Create")
+                </p>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Role ID</th>
+                            <th>Mô tả</th>
+                            <th>Manage</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Role ID</th>
+                            <th>Mô tả</th>
+                            <th>Manage</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RoleId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Decription)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.RoleId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.RoleId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.RoleId })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

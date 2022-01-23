@@ -1,0 +1,27 @@
+﻿@model Models.EF.Role
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Role</h4>
+    <hr />
+    <dl class="container-fluid">
+        <dt>
+            @Html.DisplayNameFor(model => model.Decription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Decription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

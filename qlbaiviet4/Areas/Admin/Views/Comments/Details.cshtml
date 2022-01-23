@@ -1,0 +1,43 @@
+﻿@model Models.EF.Comment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="container-fluid">
+        <dt>
+            @Html.DisplayNameFor(model => model.Post.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ccontent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ccontent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
